@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from './components/Link/Link';
 
 const NAVIGATION_EVENT = 'pushstate';
 
-const navigate = (href: string) => {
+export const navigate = (href: string) => {
 	window.history.pushState({}, '', href); //cambia la url pero no refresca la pagina
-	console.log('href', href);
-
 	const navigationEvent = new Event(NAVIGATION_EVENT);
 	window.dispatchEvent(navigationEvent);
 };
@@ -14,7 +13,7 @@ const HomePage = () => {
 	return (
 		<div>
 			<h3>Home</h3>
-			<button onClick={() => navigate('/about')}>Here go to about</button>
+			<Link to='/about'>Here go to About</Link>
 		</div>
 	);
 };
@@ -23,7 +22,7 @@ const About = () => {
 	return (
 		<div>
 			<h4>About</h4>
-			<button onClick={() => navigate('/')}>Here go to HOME</button>
+			<Link to='/'>Here go to Home</Link>
 		</div>
 	);
 };
