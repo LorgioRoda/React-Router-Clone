@@ -4,7 +4,7 @@ import { Link } from './components/Link/Link';
 const NAVIGATION_EVENT = 'pushstate';
 
 export const navigate = (href: string) => {
-	window.history.pushState({}, '', href); //cambia la url pero no refresca la pagina
+	window.history.pushState({}, '', href); //changes the url but does not refresh the page
 	const navigationEvent = new Event(NAVIGATION_EVENT);
 	window.dispatchEvent(navigationEvent);
 };
